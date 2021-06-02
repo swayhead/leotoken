@@ -24,7 +24,6 @@ contract("TokenTest", async accounts=>{
     it("It is possible to send tokens between accounts", async ()=>{
         const tokensToSend = 1;
         let instance = await Token.deployed();
-        let totalSupply = await instance.totalSupply();
         await instance.transfer(recepient, tokensToSend);
         return expect(instance.balanceOf(recepient)).to.eventually.be.a.bignumber.equal(new BN(tokensToSend));
     })
