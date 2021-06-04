@@ -1,23 +1,19 @@
 const Token = artifacts.require("LeoToken");
 
-const chai = require("chai");
-
+const chai = require('./setupChai');
 const BN = web3.utils.BN;
-
-const chaiBN = require("chai-bn")(BN);
-chai.use(chaiBN);
-
-const chaiAsPromised = require("chai-as-promised");
-chai.use(chaiAsPromised);
-
 const expect = chai.expect;
 
-beforeEach(async ()=>{
-    this.myToken = await Token.new(1000000);
-})
+require('dotenv').config()
+
+
 
 contract("TokenTest", async accounts=>{
     const [deployerAccount, recepient, anotherAccount] = accounts;
+
+    beforeEach(async ()=>{
+        this.myToken = await Token.new(process.env.INITIAL_TOKENS);
+    })
 
     it("All tokens should be in my account", async ()=>{
         let instance = this.myToken;
