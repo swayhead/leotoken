@@ -9,8 +9,7 @@ const expect = chai.expect;
 require('dotenv').config();
 
 contract("TokenSale Test", async accounts=>{
-    const [deployerAccount, recepient, anotherAccount] = accounts;
-   
+    const [deployerAccount, recepient, anotherAccount] = accounts;   
     
     it ('Should not have tokens in my deployer account', async ()=>{
         const tokenInstance = await Token.deployed();
