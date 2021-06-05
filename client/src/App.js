@@ -81,7 +81,7 @@ class App extends Component {
               <div>
                 <p className="py-3 text-gray-500">Enter Address</p>
                 
-                <div class="flex  items-center space-x-4">
+                <div className="flex items-center space-x-4">
                   <input type="text" className="shadow appearance-none border border-gray-300 rounded-lg py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" name="kycAllowedAddress" value={this.state.kycAllowedAddress} onChange={this.handleInputChange} />
                   <button type="button" className="p-2 text-white bg-gray-400 rounded-lg hover:bg-gray-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none" onClick={this.handleKycAllow}>Add to whitelist</button>
                 </div>
