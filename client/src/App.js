@@ -74,7 +74,7 @@ class App extends Component {
          
          <div className="p-6 max-w-lg mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
             <div className="flex-shrink-0">
-              <img className="h-12 w-12" src="/logo192.png" alt="Logo" />
+              <img className="h-12 w-12 animate-spin-3s" src="/logo192.png" alt="Logo" />
             </div>
             <div>
               <div className="py-2 text-xl font-medium text-black">Do Whitelist</div>
@@ -82,7 +82,7 @@ class App extends Component {
                 <p className="py-3 text-gray-500">Enter Address</p>
                 
                 <div className="flex items-center space-x-4">
-                  <input type="text" className="shadow appearance-none border border-gray-300 rounded-lg py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" name="kycAllowedAddress" value={this.state.kycAllowedAddress} onChange={this.handleInputChange} />
+                  <input type="text" className="shadow appearance-none border border-gray-300 rounded-lg py-2 px-3 text-gray-700 focus:outline-none font-mono" name="kycAllowedAddress" value={this.state.kycAllowedAddress} onChange={this.handleInputChange} />
                   <button type="button" className="p-2 text-white bg-gray-400 rounded-lg hover:bg-gray-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none" onClick={this.handleKycAllow}>Add to whitelist</button>
                 </div>
               </div>
