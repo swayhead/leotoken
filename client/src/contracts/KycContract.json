@@ -1992,15 +1992,21 @@
     "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0x27A55ffA68d9Bb0905916584AB7E32f2F94d55f1",
+      "transactionHash": "0x408d4928b7fcee315a983eb900892e348aeae915c8a6d99449970b7992c6b584"
+    },
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x0048393c2FAda162e76abD816a0975D9900B5ff7",
-      "transactionHash": "0xde28cfd4d4c1cd1bf81f4fb5fe44b45f443a862647da241865bf75dff55ac368"
+      "address": "0x3802184947144Fc5FB3EB9614e57857cF5b00B36",
+      "transactionHash": "0x1a6debcb3d367652f0f6dec257167a451118bbe9c0ae7ff1ac45b1cd51901d9e"
     }
   },
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-06-07T20:44:45.278Z",
+  "updatedAt": "2021-06-08T21:53:44.787Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

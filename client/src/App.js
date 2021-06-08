@@ -6,8 +6,11 @@ import getWeb3 from "./getWeb3";
 
 import "./App.css";
 
+const styles = {
+  rotorImg: 'h-12 w-12' 
+};
 class App extends Component {
-  state = { loaded: false, kycAllowedAddress: '0x123...', tokenSaleAddress: null, tokenAmount: 0 };
+  state = { loaded: false, kycAllowedAddress: '0x123...', tokenSaleAddress: null, tokenAmount: 0, inBuyingProcess: false };
 
   componentDidMount = async () => {
     try {
@@ -33,8 +36,8 @@ class App extends Component {
         KycContract.networks[networkId] && KycContract.networks[networkId].address,
       );
 
-      // Set web3, accounts, and contract to the state, and then proceed with an
-      // example of interacting with the contract's methods.
+      
+      this.listenToTokenTransfer();
       this.setState({ loaded: true, tokenSaleAddress: MyTokenSale.networks[networkId].address }, this.updateTokenAmount);
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -65,12 +68,23 @@ class App extends Component {
     
   }
 
+  listenToTokenTransfer = () => {
+    this.tokenInstance.events.Transfer({to: this.accounts[0]}).on('data', () => {
+      this.updateTokenAmount();
+      this.setState({inBuyingProcess: false});
+    });
+  }
+
+  handleBuyTokens = async () => {
+    this.setState({inBuyingProcess: true})
+    await this.tokenSaleInstance.methods.buyTokens(this.accounts[0]).send({from: this.accounts[0], value: this.web3.utils.toWei("100", "wei")});
+  }
+
   updateTokenAmount = async () => {
     let tokenAmount = await this.tokenInstance.methods.balanceOf(this.accounts[0]).call();
-    // console.log(tokenAmount);
     this.setState({tokenAmount})
-
   }
+
 
   render() {
     if (!this.state.loaded) {
@@ -82,10 +96,10 @@ class App extends Component {
            
            <div className="p-6 m-6 max-w-lg mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
               <div className="flex-shrink-0">
-                <img className="h-12 w-12 animate-spin-3s" src="/logo192.png" alt="Logo" />
+                <img className={`${styles.rotorImg} ${this.state.inWhitelistingProcess ? 'animate-spin-3s' : ''}`} src="/logo192.png" alt="Logo" />
               </div>
               <div>
-                <div className="py-2 text-xl font-medium text-black">Do Whitelist</div>
+                <div className="py-2 text-xl font-medium text-black">Whitelist</div>
                 <div>
                   <p className="py-3 text-gray-500">Enter Address</p>
            
@@ -99,14 +113,14 @@ class App extends Component {
             </div>
            <div className="p-6 max-w-lg mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
               <div className="flex-shrink-0">
-                <img className="h-12 w-12 animate-spin-3s" src="/logo192.png" alt="Logo" />
+                <img className={`${styles.rotorImg} ${this.state.inBuyingProcess ? 'animate-spin-3s' : ''}`} src="/logo192.png" alt="Logo" />
               </div>
               <div>
                 <div className="py-2 text-xl font-medium text-black">Buy Tokens</div>
                 <div>
-                  <p className="py-3 text-gray-500">Use this Address: <code>{this.state.tokenSaleAddress}</code></p>
-                  <p className="py-3 text-gray-500">You currently have: <b>{this.state.tokenAmount}</b> token{this.state.tokenAmount == '1' ? '' : 's'}</p>
-                  <p> <button type="button" className="p-2 text-white bg-gray-400 rounded-lg hover:bg-gray-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">Buy tokens</button></p>
+                  <p className="py-3 text-gray-500">Using this Address: <code>{this.state.tokenSaleAddress}</code></p>
+                  <p className="py-3 text-gray-500">You currently have: <b>{this.state.tokenAmount}</b> token{this.state.tokenAmount === '1' ? '' : 's'}</p>
+                  <p> <button type="button" className="p-2 text-white bg-gray-400 rounded-lg hover:bg-gray-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none disabled:opacity-50 disabled:bg-gray-400" onClick={this.handleBuyTokens} disabled={this.state.inBuyingProcess}>Buy tokens</button></p>
                 </div>
            
               </div>
