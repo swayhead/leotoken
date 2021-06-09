@@ -138,8 +138,8 @@ class App extends Component {
     }
     return (
       <>
-      <div className={`${styles.alertStrip} bg-red-400 opacity-${this.state.error ? 1 : 0}`} dangerouslySetInnerHTML={{__html: this.state.error && this.state.error.message}}></div>
-      <div className={`${styles.alertStrip} bg-green-400 opacity-${this.state.success ? 1 : 0}`} dangerouslySetInnerHTML={{__html: this.state.success && this.state.success.message}}></div>
+      <div className={`${styles.alertStrip} bg-red-400 ${this.state.error ? 'opacity-1' : 'opacity-0'}`} dangerouslySetInnerHTML={{__html: this.state.error && this.state.error.message}}></div>
+      <div className={`${styles.alertStrip} bg-green-400 ${this.state.success ? 'opacity-1' : 'opacity-0'}`} dangerouslySetInnerHTML={{__html: this.state.success && this.state.success.message}}></div>
      
       <div className="flex h-screen justify-center items-center bg-gray-200">
          <div>
