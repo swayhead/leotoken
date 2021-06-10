@@ -76,7 +76,8 @@ class App extends Component {
   };  
 
   checkNetwork = networkId => {
-    let isLegalNetwork = parseInt(networkId) === Networks.ROPSTEN;
+    console.log(process.env)
+    let isLegalNetwork = parseInt(networkId) === Networks.ROPSTEN || (process.env.NODE_ENV === 'development');
 
     this.setState({ loaded: true, error: isLegalNetwork ? null : {message: `At present only only available on Ropsten test network`, disable: true}});
     
@@ -106,7 +107,7 @@ class App extends Component {
   listenToTokenTransfer = () => {
     this.tokenInstance.events.Transfer({to: this.accounts[0]}).on('data', () => {
       this.updateTokenAmount();
-      this.setState({inBuyingProcess: false});
+      this.setState({inBuyingProcess: false, success: {message: `Tokens successfully acquired.`}});
     });
   }
 
