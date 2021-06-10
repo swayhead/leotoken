@@ -9,6 +9,7 @@ import "./App.css";
 const styles = {
   rotorImg: 'h-12 w-12',
   alertStrip: 'fixed flex justify-center items-center h-10 w-screen text-white font-bold transition-all duration-500 ease-in-out', 
+  cardLabel: "rounded-t-xl text-center text-white bg-purple-400 font-bold h-6",
 };
 
 const Networks = {
@@ -138,29 +139,33 @@ class App extends Component {
     }
     return (
       <>
-      <div className={`${styles.alertStrip} bg-red-400 ${this.state.error ? 'opacity-1' : 'opacity-0'}`} dangerouslySetInnerHTML={{__html: this.state.error && this.state.error.message}}></div>
-      <div className={`${styles.alertStrip} bg-green-400 ${this.state.success ? 'opacity-1' : 'opacity-0'}`} dangerouslySetInnerHTML={{__html: this.state.success && this.state.success.message}}></div>
-     
-      <div className="flex h-screen justify-center items-center bg-gray-200">
-         <div>
-             <div className="p-6 m-6 max-w-lg mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <img className={`${styles.rotorImg} ${this.state.inWhitelistingProcess ? 'animate-spin-3s' : ''}`} src="/logo192.png" alt="Logo" />
-                </div>
-                <div>
-                  <div className="py-2 text-xl font-medium text-black">Whitelist</div>
-                  <div>
-                    <p className="py-3 text-gray-500">Enter Address</p>
-             
-                    <div className="flex items-center space-x-4">
-                      <input type="text" className="shadow appearance-none border border-gray-300 rounded-lg py-2 px-3 text-gray-700 focus:outline-none font-mono disabled:bg-gray-300" name="kycAllowedAddress" disabled={(this.state.error && this.state.error.disable) || this.state.inWhitelistingProcess} value={this.state.kycAllowedAddress} onChange={this.handleInputChange} />
-                      <button type="button" className="p-2 text-white bg-gray-400 rounded-lg hover:bg-gray-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none disabled:bg-gray-300" disabled={(this.state.error && this.state.error.disable) || this.state.inWhitelistingProcess} onClick={this.handleKycAllow}>Add to whitelist</button>
-                    </div>
+        <div className={`${styles.alertStrip} bg-red-400 ${this.state.error ? 'opacity-1' : 'opacity-0'}`} dangerouslySetInnerHTML={{__html: this.state.error && this.state.error.message}}></div>
+        <div className={`${styles.alertStrip} bg-green-400 ${this.state.success ? 'opacity-1' : 'opacity-0'}`} dangerouslySetInnerHTML={{__html: this.state.success && this.state.success.message}}></div>
+      
+        <div className="flex h-screen justify-center items-center bg-gray-200">
+          <div>
+            <div className="m-6 max-w-lg mx-auto bg-white rounded-xl shadow-md ">
+              <div className={`${styles.cardLabel}`}>{this.state.inWhitelistingProcess ? 'Processing transaction. Please wait...' : ''}</div>
+              <div className="flex items-center space-x-4 p-6 pt-2 ">
+                  <div className="flex-shrink-0">
+                    <img className={`${styles.rotorImg} ${this.state.inWhitelistingProcess ? 'animate-spin-3s' : ''}`} src="/logo192.png" alt="Logo" />
                   </div>
-             
+                  <div>
+                    <div className="py-2 text-xl font-medium text-black">Whitelist</div>
+                    <div>
+                      <p className="py-3 text-gray-500">Enter Address</p>             
+                      <div className="flex items-center space-x-4">
+                        <input type="text" className="shadow appearance-none border border-gray-300 rounded-lg py-2 px-3 text-gray-700 focus:outline-none font-mono disabled:bg-gray-300" name="kycAllowedAddress" disabled={(this.state.error && this.state.error.disable) || this.state.inWhitelistingProcess} value={this.state.kycAllowedAddress} onChange={this.handleInputChange} />
+                        <button type="button" className="p-2 text-white bg-gray-400 rounded-lg hover:bg-gray-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none disabled:bg-gray-300" disabled={(this.state.error && this.state.error.disable) || this.state.inWhitelistingProcess} onClick={this.handleKycAllow}>Add to whitelist</button>
+                      </div>
+                    </div>             
+                  </div>
                 </div>
-              </div>
-             <div className="p-6 max-w-lg mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+            </div>
+            
+            <div className="m-6 max-w-lg mx-auto bg-white rounded-xl shadow-md ">
+              <div className={`${styles.cardLabel}`}>{this.state.inBuyingProcess ? 'Processing transaction. Please wait...' : ''}</div>
+              <div className="flex items-center space-x-4 p-6 pt-2 ">
                 <div className="flex-shrink-0">
                   <img className={`${styles.rotorImg} ${this.state.inBuyingProcess ? 'animate-spin-3s' : ''}`} src="/logo192.png" alt="Logo" />
                 </div>
@@ -170,13 +175,12 @@ class App extends Component {
                     <p className="py-3 text-gray-500">Using this Address: <code>{this.state.tokenSaleAddress}</code></p>
                     <p className="py-3 text-gray-500">You currently have: <b>{this.state.tokenAmount}</b> token{this.state.tokenAmount === '1' ? '' : 's'}</p>
                     <p> <button type="button" className="p-2 text-white bg-gray-400 rounded-lg hover:bg-gray-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none disabled:bg-gray-300" onClick={this.handleBuyTokens} disabled={(this.state.error && this.state.error.disable) || this.state.inBuyingProcess}>Buy tokens</button></p>
-                  </div>
-             
+                  </div>            
                 </div>
               </div>
-        
-         </div>
-      </div>
+            </div>
+          </div>
+        </div>
       </>
     );
   }
