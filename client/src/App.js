@@ -69,14 +69,13 @@ class App extends Component {
       this.setState({ loaded: true, tokenSaleAddress: MyTokenSale.networks[networkId].address }, this.updateTokenAmount);
     } catch (error) {
       // Catch any errors for any of the above operations.
-      this.setState({ loaded: true, error: {message: `<a href="https://metamask.io/" target="_blank">Please install Metamask first</a>`}});
+      this.setState({ loaded: true, error: {message: `<a href="https://metamask.io/" target="_blank">Please install Metamask first</a>`, disable: true}});
       
       console.error(error);
     }
   };  
 
   checkNetwork = networkId => {
-    console.log(process.env)
     let isLegalNetwork = parseInt(networkId) === Networks.ROPSTEN || (process.env.NODE_ENV === 'development');
 
     this.setState({ loaded: true, error: isLegalNetwork ? null : {message: `At present only only available on Ropsten test network`, disable: true}});
@@ -138,10 +137,18 @@ class App extends Component {
     if (!this.state.loaded) {
       return <div className="flex h-screen justify-center items-center">Loading Web3, accounts, and contract...</div>;
     }
+    let alert = {className: '', message: ''};
+    if (this.state.error) {
+      alert = {className: 'bg-red-400', message: this.state.error.message};
+    }
+    if (this.state.success) {
+      alert = {className: 'bg-green-400', message: this.state.success.message};
+    }
+
+
     return (
       <>
-        <div className={`${styles.alertStrip} bg-red-400 ${this.state.error ? 'opacity-1' : 'opacity-0'}`} dangerouslySetInnerHTML={{__html: this.state.error && this.state.error.message}}></div>
-        <div className={`${styles.alertStrip} bg-green-400 ${this.state.success ? 'opacity-1' : 'opacity-0'}`} dangerouslySetInnerHTML={{__html: this.state.success && this.state.success.message}}></div>
+        <div className={`${styles.alertStrip} ${alert.className}`} dangerouslySetInnerHTML={{__html: alert.message}}></div>
       
         <div className="flex h-screen justify-center items-center bg-gray-200">
           <div>
