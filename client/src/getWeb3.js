@@ -7,14 +7,14 @@ const getWeb3 = () =>
       // Modern dapp browsers...
       if (window.ethereum) {
         const web3 = new Web3(window.ethereum);
-        try {
           // Request account access if needed
-          await window.ethereum.enable();
-          // Acccounts now exposed
+        await window.ethereum.request({method: 'eth_requestAccounts'}).then((accounts)=>{
+         // Acccounts now exposed
           resolve(web3);
-        } catch (error) {
+        })          
+        .catch(error => {
           reject(error);
-        }
+        })
       }
       // Legacy dapp browsers...
       else if (window.web3) {
