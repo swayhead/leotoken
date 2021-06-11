@@ -12,16 +12,13 @@ const styles = {
   cardLabel: "rounded-t-xl text-center text-white bg-purple-400 font-bold h-6",
 };
 
-const Networks = {
+const Blockchains = {
   MAINNET:	1,
   ROPSTEN:	3,
   RINKEBY:	4,
   GOERLI: 	5,
-  DEV:		2018,
-  CLASSIC: 61,	
-  MORDOR:	7,
-  KOTTI:	6,
-  ASTOR: 212
+  KOVAN:		42,
+  LOCAL:    1337,
 };
 class App extends Component {
   state = { 
@@ -45,8 +42,9 @@ class App extends Component {
 
       // Get the contract instance.
       const networkId = await this.web3.eth.net.getId();
+      const chainId = await this.web3.eth.getChainId();
 
-      if (!this.checkNetwork(networkId)) {
+      if (!this.checkNetwork(chainId)) {
         return;
       }
 
@@ -75,11 +73,9 @@ class App extends Component {
     }
   };  
 
-  checkNetwork = networkId => {
-    let isLegalNetwork = parseInt(networkId) === Networks.ROPSTEN || (process.env.NODE_ENV === 'development');
-
-    this.setState({ loaded: true, error: isLegalNetwork ? null : {message: `At present only only available on Ropsten test network`, disable: true}});
-    
+  checkNetwork = chainId => {
+    let isLegalNetwork = parseInt(chainId) === Blockchains.ROPSTEN || (process.env.NODE_ENV === 'development' && parseInt(chainId) === Blockchains.LOCAL);
+    this.setState({ loaded: true, error: isLegalNetwork ? null : {message: `At present only only available on Ropsten test network`, disable: true}});    
     return isLegalNetwork;
   }
 
@@ -112,8 +108,8 @@ class App extends Component {
 
   listenToNetworkChange = ()=>{
     if (window.ethereum) {
-      window.ethereum.on('networkChanged', networkId => {
-        this.checkNetwork(networkId);
+      window.ethereum.on('chainChanged', chainId => {
+        this.checkNetwork(chainId);
       })
     }
   }
