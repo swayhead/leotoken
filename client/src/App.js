@@ -75,7 +75,7 @@ class App extends Component {
 
   checkNetwork = chainId => {
     let isLegalNetwork = parseInt(chainId) === Blockchains.ROPSTEN || (process.env.NODE_ENV === 'development' && parseInt(chainId) === Blockchains.LOCAL);
-    this.setState({ loaded: true, error: isLegalNetwork ? null : {message: `At present only only available on Ropsten test network`, disable: true}});    
+    this.setState({ loaded: true, error: isLegalNetwork ? null : {message: `At present only available on Ropsten test network`, disable: true}});    
     return isLegalNetwork;
   }
 
