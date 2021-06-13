@@ -166,7 +166,7 @@ class App extends Component {
             <Card styles={styles} inProcess={this.state.inBuyingProcess}>
               <div className="py-2 text-xl font-medium text-black">Buy Tokens</div>
               <div>
-                <p className="py-3 text-gray-500">Using this Address: <code>{this.state.tokenSaleAddress}</code></p>
+                <p className="py-3 text-gray-500">Using this Address: <code className="break-all">{this.state.tokenSaleAddress}</code></p>
                 <p className="py-3 text-gray-500">You currently have: <b>{this.state.tokenAmount}</b> token{this.state.tokenAmount === '1' ? '' : 's'}</p>
                 <p> <button type="button" className={`${styles.button} w-full`} onClick={this.handleBuyTokens} disabled={(this.state.error && this.state.error.disable) || this.state.inBuyingProcess}>Buy tokens</button></p>
               </div>
