@@ -370,7 +370,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.4;\r\n\r\n\r\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\r\nimport \"./MinterRole.sol\";\r\n\r\n/**\r\n * @dev Extension of {ERC20} that adds a set of accounts with the {MinterRole},\r\n * which have permission to mint (create) new tokens as they see fit.\r\n *\r\n * At construction, the deployer of the contract is the only minter.\r\n */\r\nabstract contract ERC20Mintable is ERC20, MinterRole {\r\n    /**\r\n     * @dev See {ERC20-_mint}.\r\n     *\r\n     * Requirements:\r\n     *\r\n     * - the caller must have the {MinterRole}.\r\n     */\r\n    function mint(address account, uint256 amount) public onlyMinter returns (bool) {\r\n        _mint(account, amount);\r\n        return true;\r\n    }\r\n}",
-  "sourcePath": "E:/blockchain/tokenization/contracts/ERC20Mintable.sol",
+  "sourcePath": "E:\\blockchain\\tokenization\\contracts\\ERC20Mintable.sol",
   "ast": {
     "absolutePath": "/E/blockchain/tokenization/contracts/ERC20Mintable.sol",
     "exportedSymbols": {
@@ -1079,7 +1079,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-06-13T18:06:55.578Z",
+  "updatedAt": "2021-06-13T21:44:34.630Z",
   "devdoc": {
     "details": "Extension of {ERC20} that adds a set of accounts with the {MinterRole}, which have permission to mint (create) new tokens as they see fit. At construction, the deployer of the contract is the only minter.",
     "kind": "dev",
