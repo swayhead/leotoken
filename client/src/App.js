@@ -32,6 +32,7 @@ class App extends Component {
     kycAllowedAddress: '0x123...',
     tokenSaleAddress: null,
     tokenAmount: 0,
+    totalSupply: 0,
     inBuyingProcess: false,
     inWhitelistingProcess: false
   };
@@ -68,7 +69,7 @@ class App extends Component {
 
       this.listenToTokenTransfer();
       this.listenToWalletChanges();
-      this.setState({ loaded: true, tokenSaleAddress: MyTokenSale.networks[networkId].address }, this.updateTokenAmount);
+      this.setState({ loaded: true, tokenSaleAddress: MyTokenSale.networks[networkId].address }, this.onLoad);
     } catch (error) {
       // Catch any errors for any of the above operations.
       this.setState({ loaded: true, error: { message: `<a href="https://metamask.io/" target="_blank">Please install Metamask first</a>`, disable: true } });
@@ -106,6 +107,7 @@ class App extends Component {
   listenToTokenTransfer = () => {
     this.tokenInstance.events.Transfer({ to: this.accounts[0] }).on('data', () => {
       this.updateTokenAmount();
+      this.updateTotalSupply();
       this.setState({ inBuyingProcess: false, success: { message: `Tokens successfully acquired.` } });
     });
   }
@@ -131,9 +133,19 @@ class App extends Component {
     }
   }
 
+  onLoad = () => {
+    this.updateTokenAmount();
+    this.updateTotalSupply();
+  }
+
   updateTokenAmount = async () => {
     let tokenAmount = await this.tokenInstance.methods.balanceOf(this.accounts[0]).call();
     this.setState({ tokenAmount })
+  }
+
+  updateTotalSupply = async () => {
+    let totalSupply = await this.tokenInstance.methods.totalSupply().call();
+    this.setState({ totalSupply })
   }
 
 
@@ -175,6 +187,7 @@ class App extends Component {
                 <p> <button type="button" className={`${styles.button} w-full`} onClick={this.handleBuyTokens} disabled={(this.state.error && this.state.error.disable) || this.state.inBuyingProcess}>Buy tokens</button></p>
               </div>
             </Card>
+            <div className="font-mono text-sm text-purple-600 text-center">Total Supply: {this.state.totalSupply}</div>
           </div>
         </div>
       </>
