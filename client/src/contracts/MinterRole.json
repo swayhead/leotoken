@@ -3271,13 +3271,13 @@
     "absolutePath": "/E/blockchain/tokenization/contracts/MinterRole.sol",
     "exportedSymbols": {
       "Context": [
-        1271
+        1272
       ],
       "MinterRole": [
         492
       ],
       "Roles": [
-        638
+        639
       ]
     },
     "id": 493,
@@ -3302,7 +3302,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 493,
-        "sourceUnit": 1272,
+        "sourceUnit": 1273,
         "src": "62:51:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3314,7 +3314,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 493,
-        "sourceUnit": 639,
+        "sourceUnit": 640,
         "src": "115:21:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3327,7 +3327,7 @@
               "id": 388,
               "name": "Context",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1271,
+              "referencedDeclaration": 1272,
               "src": "163:7:4"
             },
             "id": 389,
@@ -3341,7 +3341,7 @@
         "id": 492,
         "linearizedBaseContracts": [
           492,
-          1271
+          1272
         ],
         "name": "MinterRole",
         "nameLocation": "149:10:4",
@@ -3353,7 +3353,7 @@
               "id": 390,
               "name": "Roles",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 638,
+              "referencedDeclaration": 639,
               "src": "184:5:4"
             },
             "nodeType": "UsingForDirective",
@@ -3365,13 +3365,13 @@
                 "id": 391,
                 "name": "Roles.Role",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 557,
+                "referencedDeclaration": 558,
                 "src": "194:10:4"
               },
-              "referencedDeclaration": 557,
+              "referencedDeclaration": 558,
               "src": "194:10:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Role_$557_storage_ptr",
+                "typeIdentifier": "t_struct$_Role_$558_storage_ptr",
                 "typeString": "struct Roles.Role"
               }
             }
@@ -3476,7 +3476,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_Role_$557_storage",
+              "typeIdentifier": "t_struct$_Role_$558_storage",
               "typeString": "struct Roles.Role"
             },
             "typeName": {
@@ -3486,13 +3486,13 @@
                 "id": 402,
                 "name": "Roles.Role",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 557,
+                "referencedDeclaration": 558,
                 "src": "315:10:4"
               },
-              "referencedDeclaration": 557,
+              "referencedDeclaration": 558,
               "src": "315:10:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Role_$557_storage_ptr",
+                "typeIdentifier": "t_struct$_Role_$558_storage_ptr",
                 "typeString": "struct Roles.Role"
               }
             },
@@ -3515,7 +3515,7 @@
                           "name": "_msgSender",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1259,
+                          "referencedDeclaration": 1260,
                           "src": "388:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
@@ -3621,7 +3621,7 @@
                               "name": "_msgSender",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1259,
+                              "referencedDeclaration": 1260,
                               "src": "467:10:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
@@ -3796,7 +3796,7 @@
                         "referencedDeclaration": 404,
                         "src": "641:8:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$557_storage",
+                          "typeIdentifier": "t_struct$_Role_$558_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
@@ -3807,10 +3807,10 @@
                       "lValueRequested": false,
                       "memberName": "has",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 637,
+                      "referencedDeclaration": 638,
                       "src": "641:12:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$557_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$557_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$558_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$558_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address) view returns (bool)"
                       }
                     },
@@ -4066,7 +4066,7 @@
                           "name": "_msgSender",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1259,
+                          "referencedDeclaration": 1260,
                           "src": "836:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
@@ -4191,7 +4191,7 @@
                         "referencedDeclaration": 404,
                         "src": "922:8:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$557_storage",
+                          "typeIdentifier": "t_struct$_Role_$558_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
@@ -4202,10 +4202,10 @@
                       "lValueRequested": false,
                       "memberName": "add",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 584,
+                      "referencedDeclaration": 585,
                       "src": "922:12:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$557_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$557_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$558_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$558_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address)"
                       }
                     },
@@ -4374,7 +4374,7 @@
                         "referencedDeclaration": 404,
                         "src": "1055:8:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$557_storage",
+                          "typeIdentifier": "t_struct$_Role_$558_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
@@ -4385,10 +4385,10 @@
                       "lValueRequested": false,
                       "memberName": "remove",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 610,
+                      "referencedDeclaration": 611,
                       "src": "1055:15:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$557_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$557_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$558_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$558_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address)"
                       }
                     },
@@ -4532,13 +4532,13 @@
     "absolutePath": "/E/blockchain/tokenization/contracts/MinterRole.sol",
     "exportedSymbols": {
       "Context": [
-        1271
+        1272
       ],
       "MinterRole": [
         492
       ],
       "Roles": [
-        638
+        639
       ]
     },
     "id": 493,
@@ -4563,7 +4563,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 493,
-        "sourceUnit": 1272,
+        "sourceUnit": 1273,
         "src": "62:51:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -4575,7 +4575,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 493,
-        "sourceUnit": 639,
+        "sourceUnit": 640,
         "src": "115:21:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -4588,7 +4588,7 @@
               "id": 388,
               "name": "Context",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1271,
+              "referencedDeclaration": 1272,
               "src": "163:7:4"
             },
             "id": 389,
@@ -4602,7 +4602,7 @@
         "id": 492,
         "linearizedBaseContracts": [
           492,
-          1271
+          1272
         ],
         "name": "MinterRole",
         "nameLocation": "149:10:4",
@@ -4614,7 +4614,7 @@
               "id": 390,
               "name": "Roles",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 638,
+              "referencedDeclaration": 639,
               "src": "184:5:4"
             },
             "nodeType": "UsingForDirective",
@@ -4626,13 +4626,13 @@
                 "id": 391,
                 "name": "Roles.Role",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 557,
+                "referencedDeclaration": 558,
                 "src": "194:10:4"
               },
-              "referencedDeclaration": 557,
+              "referencedDeclaration": 558,
               "src": "194:10:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Role_$557_storage_ptr",
+                "typeIdentifier": "t_struct$_Role_$558_storage_ptr",
                 "typeString": "struct Roles.Role"
               }
             }
@@ -4737,7 +4737,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_Role_$557_storage",
+              "typeIdentifier": "t_struct$_Role_$558_storage",
               "typeString": "struct Roles.Role"
             },
             "typeName": {
@@ -4747,13 +4747,13 @@
                 "id": 402,
                 "name": "Roles.Role",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 557,
+                "referencedDeclaration": 558,
                 "src": "315:10:4"
               },
-              "referencedDeclaration": 557,
+              "referencedDeclaration": 558,
               "src": "315:10:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Role_$557_storage_ptr",
+                "typeIdentifier": "t_struct$_Role_$558_storage_ptr",
                 "typeString": "struct Roles.Role"
               }
             },
@@ -4776,7 +4776,7 @@
                           "name": "_msgSender",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1259,
+                          "referencedDeclaration": 1260,
                           "src": "388:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
@@ -4882,7 +4882,7 @@
                               "name": "_msgSender",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1259,
+                              "referencedDeclaration": 1260,
                               "src": "467:10:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
@@ -5057,7 +5057,7 @@
                         "referencedDeclaration": 404,
                         "src": "641:8:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$557_storage",
+                          "typeIdentifier": "t_struct$_Role_$558_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
@@ -5068,10 +5068,10 @@
                       "lValueRequested": false,
                       "memberName": "has",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 637,
+                      "referencedDeclaration": 638,
                       "src": "641:12:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$557_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$557_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$558_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$558_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address) view returns (bool)"
                       }
                     },
@@ -5327,7 +5327,7 @@
                           "name": "_msgSender",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1259,
+                          "referencedDeclaration": 1260,
                           "src": "836:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
@@ -5452,7 +5452,7 @@
                         "referencedDeclaration": 404,
                         "src": "922:8:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$557_storage",
+                          "typeIdentifier": "t_struct$_Role_$558_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
@@ -5463,10 +5463,10 @@
                       "lValueRequested": false,
                       "memberName": "add",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 584,
+                      "referencedDeclaration": 585,
                       "src": "922:12:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$557_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$557_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$558_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$558_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address)"
                       }
                     },
@@ -5635,7 +5635,7 @@
                         "referencedDeclaration": 404,
                         "src": "1055:8:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$557_storage",
+                          "typeIdentifier": "t_struct$_Role_$558_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
@@ -5646,10 +5646,10 @@
                       "lValueRequested": false,
                       "memberName": "remove",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 610,
+                      "referencedDeclaration": 611,
                       "src": "1055:15:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$557_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$557_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$558_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$558_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address)"
                       }
                     },
@@ -5795,7 +5795,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-06-13T18:18:36.742Z",
+  "updatedAt": "2021-06-13T20:57:22.957Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

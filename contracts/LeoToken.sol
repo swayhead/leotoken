@@ -6,7 +6,6 @@ import "./ERC20Mintable.sol";
 
 contract LeoToken is ERC20Mintable {
     constructor() ERC20("Leonardo Token", "LEO") {
-     //   _mint(msg.sender, initialSupply);
     }
 }
 

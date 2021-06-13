@@ -116,22 +116,22 @@
     "absolutePath": "/E/blockchain/tokenization/contracts/MintedCrowdsale.sol",
     "exportedSymbols": {
       "Context": [
-        1271
+        1272
       ],
       "Crowdsale": [
         287
       ],
       "ERC20": [
-        1145
+        1146
       ],
       "ERC20Mintable": [
         317
       ],
       "IERC20": [
-        1223
+        1224
       ],
       "IERC20Metadata": [
-        1248
+        1249
       ],
       "MintedCrowdsale": [
         383
@@ -140,10 +140,10 @@
         492
       ],
       "Roles": [
-        638
+        639
       ],
       "SafeMath": [
-        1583
+        1584
       ]
     },
     "id": 384,
@@ -284,7 +284,7 @@
                                       "referencedDeclaration": 101,
                                       "src": "767:5:3",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$1223_$",
+                                        "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$1224_$",
                                         "typeString": "function () view returns (contract IERC20)"
                                       }
                                     },
@@ -299,7 +299,7 @@
                                     "src": "767:7:3",
                                     "tryCall": false,
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_contract$_IERC20_$1223",
+                                      "typeIdentifier": "t_contract$_IERC20_$1224",
                                       "typeString": "contract IERC20"
                                     }
                                   }
@@ -307,7 +307,7 @@
                                 "expression": {
                                   "argumentTypes": [
                                     {
-                                      "typeIdentifier": "t_contract$_IERC20_$1223",
+                                      "typeIdentifier": "t_contract$_IERC20_$1224",
                                       "typeString": "contract IERC20"
                                     }
                                   ],
@@ -576,22 +576,22 @@
     "absolutePath": "/E/blockchain/tokenization/contracts/MintedCrowdsale.sol",
     "exportedSymbols": {
       "Context": [
-        1271
+        1272
       ],
       "Crowdsale": [
         287
       ],
       "ERC20": [
-        1145
+        1146
       ],
       "ERC20Mintable": [
         317
       ],
       "IERC20": [
-        1223
+        1224
       ],
       "IERC20Metadata": [
-        1248
+        1249
       ],
       "MintedCrowdsale": [
         383
@@ -600,10 +600,10 @@
         492
       ],
       "Roles": [
-        638
+        639
       ],
       "SafeMath": [
-        1583
+        1584
       ]
     },
     "id": 384,
@@ -744,7 +744,7 @@
                                       "referencedDeclaration": 101,
                                       "src": "767:5:3",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$1223_$",
+                                        "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IERC20_$1224_$",
                                         "typeString": "function () view returns (contract IERC20)"
                                       }
                                     },
@@ -759,7 +759,7 @@
                                     "src": "767:7:3",
                                     "tryCall": false,
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_contract$_IERC20_$1223",
+                                      "typeIdentifier": "t_contract$_IERC20_$1224",
                                       "typeString": "contract IERC20"
                                     }
                                   }
@@ -767,7 +767,7 @@
                                 "expression": {
                                   "argumentTypes": [
                                     {
-                                      "typeIdentifier": "t_contract$_IERC20_$1223",
+                                      "typeIdentifier": "t_contract$_IERC20_$1224",
                                       "typeString": "contract IERC20"
                                     }
                                   ],
@@ -1038,7 +1038,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-06-13T18:18:36.731Z",
+  "updatedAt": "2021-06-13T20:57:22.947Z",
   "devdoc": {
     "details": "Extension of Crowdsale contract whose tokens are minted in each purchase. Token ownership should be transferred to MintedCrowdsale for minting.",
     "kind": "dev",
