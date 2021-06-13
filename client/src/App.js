@@ -67,7 +67,7 @@ class App extends Component {
 
 
       this.listenToTokenTransfer();
-      this.listenToNetworkChange();
+      this.listenToWalletChanges();
       this.setState({ loaded: true, tokenSaleAddress: MyTokenSale.networks[networkId].address }, this.updateTokenAmount);
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -110,10 +110,14 @@ class App extends Component {
     });
   }
 
-  listenToNetworkChange = () => {
+  listenToWalletChanges = () => {
     if (window.ethereum) {
       window.ethereum.on('chainChanged', chainId => {
         this.checkNetwork(chainId);
+      })
+      window.ethereum.on('accountsChanged', accounts => {
+        this.accounts = accounts;
+        this.updateTokenAmount();
       })
     }
   }
@@ -121,7 +125,7 @@ class App extends Component {
   handleBuyTokens = async () => {
     this.setState({ inBuyingProcess: true, error: null, success: null })
     try {
-      await this.tokenSaleInstance.methods.buyTokens(this.accounts[0]).send({ from: this.accounts[0], value: this.web3.utils.toWei("100", "wei") });
+      await this.tokenSaleInstance.methods.buyTokens(this.accounts[0]).send({ from: this.accounts[0], value: this.web3.utils.toWei("1", "wei") });
     } catch (error) {
       this.setState({ error, inBuyingProcess: false });
     }
