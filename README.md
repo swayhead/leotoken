@@ -13,7 +13,7 @@ The purpose of the project is to showcase the basic features of a mintable ERC20
 - Tailwind
 
 
-## How to test
+## Demo
 
 - Head to [https://brave-fermi-f1860b.netlify.app](https://brave-fermi-f1860b.netlify.app).
 - In your Crypto wallet (Metamask, Coinbase,..) select the **Ropsten** test network. 
