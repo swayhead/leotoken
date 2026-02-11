@@ -2,9 +2,9 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "./ERC20Mintable.sol";
 
-contract LeoToken is ERC20 {
-    constructor(uint256 initialSupply) ERC20("Leonardo Token", "LEO") {
-        _mint(msg.sender, initialSupply);
+contract LeoToken is ERC20Mintable {
+    constructor() ERC20("Leonardo Token", "LEO") {
     }
 }
