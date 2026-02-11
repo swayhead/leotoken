@@ -1,15 +1,18 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.20;
 
-contract KycContract {
-    mapping (address=>bool) kycList;
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-    function setKycStatus(address _addr, bool _status) public {
+contract KycContract is Ownable {
+    mapping(address => bool) kycList;
+
+    constructor() Ownable(msg.sender) {}
+
+    function setKycStatus(address _addr, bool _status) public onlyOwner {
         kycList[_addr] = _status;
     }
 
-    function isKycCompleted(address _addr) view public returns (bool) {
+    function isKycCompleted(address _addr) public view returns (bool) {
         return kycList[_addr];
     }
-
 }

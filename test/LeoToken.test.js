@@ -1,37 +1,31 @@
-const Token = artifacts.require("LeoToken");
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
 
-const chai = require('./setupChai');
-const BN = web3.utils.BN;
-const expect = chai.expect;
+describe("LeoToken", function () {
+  let token;
+  let deployer, recipient;
+  const INITIAL_TOKENS = 1000000n;
 
-require('dotenv').config()
+  beforeEach(async function () {
+    [deployer, recipient] = await ethers.getSigners();
+    const LeoToken = await ethers.getContractFactory("LeoToken");
+    token = await LeoToken.deploy(INITIAL_TOKENS);
+  });
 
+  it("Should assign all tokens to the deployer", async function () {
+    const totalSupply = await token.totalSupply();
+    expect(await token.balanceOf(deployer.address)).to.equal(totalSupply);
+  });
 
+  it("Should transfer tokens between accounts", async function () {
+    await token.transfer(recipient.address, 1);
+    expect(await token.balanceOf(recipient.address)).to.equal(1);
+  });
 
-contract("TokenTest", async accounts=>{
-    const [deployerAccount, recepient, anotherAccount] = accounts;
-
-    beforeEach(async ()=>{
-        this.myToken = await Token.new(process.env.INITIAL_TOKENS);
-    })
-
-    it("All tokens should be in my account", async ()=>{
-        let instance = this.myToken;
-        let totalSupply = await instance.totalSupply();
-        return expect(instance.balanceOf(deployerAccount)).to.eventually.be.a.bignumber.equal(totalSupply);
-    });
-
-    it("It is possible to send tokens between accounts", async ()=>{
-        const tokensToSend = 1;
-        let instance =this.myToken;
-        await instance.transfer(recepient, tokensToSend);
-        return expect(instance.balanceOf(recepient)).to.eventually.be.a.bignumber.equal(new BN(tokensToSend));
-    })
-
-    it("It is not possible to send more tokens than available in total", async ()=>{
-        let instance = this.myToken;
-        let balanceOfDeployer = await instance.balanceOf(deployerAccount);
-        return expect(instance.transfer(recepient, new BN(balanceOfDeployer + 1))).to.eventually.be.rejected;
-    })
-
+  it("Should not allow transferring more than balance", async function () {
+    const balance = await token.balanceOf(deployer.address);
+    await expect(
+      token.transfer(recipient.address, balance + 1n)
+    ).to.be.reverted;
+  });
 });

@@ -1,2 +1,8 @@
 /node_modules
+client/node_modules
+client/dist
 .env
+artifacts/
+cache/
+typechain-types/
+.DS_Store

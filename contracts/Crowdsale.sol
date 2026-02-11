@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 /**
  * @title Crowdsale
@@ -17,8 +16,6 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
  * behavior.
  */
 contract Crowdsale {
-    using SafeMath for uint256;
-
     // The token being sold
     IERC20 private _token;
 
@@ -111,7 +108,7 @@ contract Crowdsale {
         uint256 tokens = _getTokenAmount(weiAmount);
 
         // update state
-        _weiRaised = _weiRaised.add(weiAmount);
+        _weiRaised = _weiRaised + weiAmount;
 
         _processPurchase(beneficiary, tokens);
         emit TokensPurchased(msg.sender, beneficiary, weiAmount, tokens);
@@ -134,7 +131,6 @@ contract Crowdsale {
     function _preValidatePurchase(address beneficiary, uint256 weiAmount) internal view virtual {
         require(beneficiary != address(0), "Crowdsale: beneficiary is the zero address");
         require(weiAmount != 0, "Crowdsale: weiAmount is 0");
-        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
     }
 
     /**
@@ -183,13 +179,14 @@ contract Crowdsale {
      * @return Number of tokens that can be purchased with the specified _weiAmount
      */
     function _getTokenAmount(uint256 weiAmount) internal view virtual returns (uint256) {
-        return weiAmount.mul(_rate);
+        return weiAmount * _rate;
     }
 
     /**
      * @dev Determines how ETH is stored/forwarded on purchases.
      */
     function _forwardFunds() internal {
-        _wallet.transfer(msg.value);
+        (bool success, ) = _wallet.call{value: msg.value}("");
+        require(success, "Crowdsale: ETH transfer failed");
     }
 }
