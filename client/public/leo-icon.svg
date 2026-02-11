@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <!-- Outer ring -->
+  <circle cx="96" cy="96" r="90" fill="none" stroke="#8db89e" stroke-width="5"/>
+  <!-- Filled coin background -->
+  <circle cx="96" cy="96" r="85" fill="#8db89e"/>
+  <!-- Inner ring -->
+  <circle cx="96" cy="96" r="66" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.3"/>
+  <!-- LEO text centered -->
+  <text x="96" y="110" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="#fff" letter-spacing="4">LEO</text>
+</svg>

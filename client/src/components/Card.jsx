@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "/logo192.png";
+import logo from "/leo-icon.svg";
 export default function Card(props) {
     return (
         <div className="m-6 w-full max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
