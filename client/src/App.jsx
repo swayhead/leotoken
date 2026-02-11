@@ -265,7 +265,7 @@ function App() {
 
       <div className="flex justify-center items-start min-h-screen bg-gray-200 py-16">
         <div>
-          <Card styles={styles}>
+          <Card styles={styles} noIcon>
             <div className="py-2 text-xl font-medium text-black">
               Leonardo Token (LEO)
             </div>
