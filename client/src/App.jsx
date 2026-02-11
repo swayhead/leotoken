@@ -263,8 +263,68 @@ function App() {
         )}
       </div>
 
-      <div className="flex h-screen justify-center items-center bg-gray-200">
+      <div className="flex justify-center items-start min-h-screen bg-gray-200 py-16">
         <div>
+          <Card styles={styles}>
+            <div className="py-2 text-xl font-medium text-black">
+              Leonardo Token (LEO)
+            </div>
+            <div className="text-gray-600 text-sm leading-relaxed space-y-3">
+              <p>
+                This is a demo dApp for an <b>ERC-20 token crowdsale</b> on the
+                Ethereum <b>Sepolia</b> test network. You can buy LEO tokens
+                using test ETH &mdash; no real funds are involved.
+              </p>
+              <div>
+                <p className="font-semibold text-gray-700 mb-1">Prerequisites</p>
+                <ol className="list-decimal list-inside space-y-1 ml-1">
+                  <li>
+                    Install the{" "}
+                    <a
+                      href="https://metamask.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-purple-500 underline"
+                    >
+                      MetaMask
+                    </a>{" "}
+                    browser extension
+                  </li>
+                  <li>Switch MetaMask to the <b>Sepolia</b> test network</li>
+                  <li>
+                    Get free test ETH from a{" "}
+                    <a
+                      href="https://www.alchemy.com/faucets/ethereum-sepolia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-purple-500 underline"
+                    >
+                      Sepolia faucet
+                    </a>
+                  </li>
+                </ol>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-700 mb-1">How it works</p>
+                <ol className="list-decimal list-inside space-y-1 ml-1">
+                  <li>
+                    <b>KYC Whitelist</b> &mdash; The contract owner must first
+                    whitelist your wallet address before you can buy tokens.
+                  </li>
+                  <li>
+                    <b>Buy Tokens</b> &mdash; Once whitelisted, click
+                    &ldquo;Buy tokens&rdquo; to send a small amount of test ETH
+                    and receive LEO tokens at a 1:1 rate.
+                  </li>
+                </ol>
+              </div>
+              <p className="text-xs text-gray-400">
+                Rate: 1 wei = 1 LEO &middot; Contract owner only can whitelist
+                addresses
+              </p>
+            </div>
+          </Card>
+
           <Card styles={styles} inProcess={inWhitelistingProcess}>
             <div className="py-2 text-xl font-medium text-black">
               Whitelist
